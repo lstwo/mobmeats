@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "verycoolmod:dog_meat"
+  },
+  "result": "verycoolmod:cooked_dog_meat",
+  "experience": 0.35,
+  "cookingtime": 150
+}

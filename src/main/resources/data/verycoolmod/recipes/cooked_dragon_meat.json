@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "verycoolmod:dragon_meat"
+  },
+  "result": "verycoolmod:cooked_dragon_meat",
+  "experience": 0.35,
+  "cookingtime": 150
+}

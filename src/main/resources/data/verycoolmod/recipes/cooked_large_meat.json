@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "verycoolmod:large_meat"
+  },
+  "result": "verycoolmod:cooked_large_meat",
+  "experience": 0.35,
+  "cookingtime": 200
+}

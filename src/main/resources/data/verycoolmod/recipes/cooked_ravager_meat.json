@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "verycoolmod:ravager_meat"
+  },
+  "result": "verycoolmod:cooked_ravager_meat",
+  "experience": 0.35,
+  "cookingtime": 200
+}

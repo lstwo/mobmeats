@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "verycoolmod:beefshroom"
+  },
+  "result": "minecraft:cooked_beef",
+  "experience": 0.35,
+  "cookingtime": 200
+}

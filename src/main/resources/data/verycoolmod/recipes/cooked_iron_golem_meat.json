@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "verycoolmod:iron_golem_meat"
+  },
+  "result": "verycoolmod:cooked_iron_golem_meat",
+  "experience": 0.35,
+  "cookingtime": 150
+}

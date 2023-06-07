@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "verycoolmod:illager_meat"
+  },
+  "result": "verycoolmod:cooked_illager_meat",
+  "experience": 0.35,
+  "cookingtime": 200
+}

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "verycoolmod:medium_meat"
+  },
+  "result": "verycoolmod:cooked_medium_meat",
+  "experience": 0.35,
+  "cookingtime": 200
+}

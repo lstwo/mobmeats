@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "verycoolmod:small_endermeat"
+  },
+  "result": "verycoolmod:cooked_small_endermeat",
+  "experience": 0.35,
+  "cookingtime": 200
+}
