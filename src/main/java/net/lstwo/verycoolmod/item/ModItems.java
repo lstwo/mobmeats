@@ -1,27 +1,23 @@
 package net.lstwo.verycoolmod.item;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.lstwo.verycoolmod.FoodPreset;
 import net.lstwo.verycoolmod.FullItem;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.item.FoodComponent;
-import net.minecraft.item.FoodComponents;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
+import net.minecraft.item.*;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
-import net.minecraft.util.registry.Registry;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ModItems {
     public static List<FullItem> items = new ArrayList<>();
-
-    public static final Item TEST_ITEM = createItem(new FabricItemSettings().group(ItemGroup.MISC), "test_item");
-
 
     public static final Item DOG_MEAT = createFood(true, 2, 4, StatusEffects.HUNGER, 1, 600, .3f, "dog_meat");
     public static final Item COOKED_DOG_MEAT = createFood(7, 12, "cooked_dog_meat");
@@ -44,23 +40,23 @@ public class ModItems {
             .statusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 600), .9f).build(), "villager_meat");
     public static final Item COOKED_VILLAGER_MEAT = createFood(14, 10, "cooked_villager_meat");
 
-    public static final Item WITCH_MEAT = createItem(new FabricItemSettings().group(ItemGroup.FOOD).food(new FoodComponent.Builder().meat().hunger(5)
+    public static final Item WITCH_MEAT = createItem(new FabricItemSettings().food(new FoodComponent.Builder().meat().hunger(5)
             .saturationModifier(4).statusEffect(new StatusEffectInstance(StatusEffects.HUNGER, 600), .3f)
             .statusEffect(new StatusEffectInstance(StatusEffects.POISON, 600), .5f)
             .statusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, 600), .5f)
             .statusEffect(new StatusEffectInstance(StatusEffects.NAUSEA), .9f).build()).rarity(Rarity.UNCOMMON), "witch_meat");
-    public static final Item COOKED_WITCH_MEAT = createItem(new FabricItemSettings().group(ItemGroup.FOOD).food(new FoodComponent.Builder().meat().hunger(14)
+    public static final Item COOKED_WITCH_MEAT = createItem(new FabricItemSettings().food(new FoodComponent.Builder().meat().hunger(14)
             .saturationModifier(10).statusEffect(new StatusEffectInstance(StatusEffects.POISON, 300), .25f)
             .statusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, 300), .25f).build()).rarity(Rarity.UNCOMMON), "cooked_witch_meat");
 
-    public static final Item SILVERFISH_MEAT = createItem(new FabricItemSettings().group(ItemGroup.FOOD).food(new FoodComponent.Builder().meat().hunger(1)
+    public static final Item SILVERFISH_MEAT = createItem(new FabricItemSettings().food(new FoodComponent.Builder().meat().hunger(1)
             .saturationModifier(2).statusEffect(new StatusEffectInstance(StatusEffects.HUNGER, 600), .3f).build()), "silverfish_meat");
-    public static final Item COOKED_SILVERFISH_MEAT = createItem(new FabricItemSettings().group(ItemGroup.FOOD).food(new FoodComponent.Builder().meat().hunger(5)
+    public static final Item COOKED_SILVERFISH_MEAT = createItem(new FabricItemSettings().food(new FoodComponent.Builder().meat().hunger(5)
             .saturationModifier(10).build()), "cooked_silverfish_meat");
 
-    public static final Item IRON_GOLEM_MEAT = createItem(new FabricItemSettings().group(ItemGroup.FOOD).food(new FoodComponent.Builder().meat().hunger(6)
+    public static final Item IRON_GOLEM_MEAT = createItem(new FabricItemSettings().food(new FoodComponent.Builder().meat().hunger(6)
             .saturationModifier(4).build()), "iron_golem_meat");
-    public static final Item COOKED_IRON_GOLEM_MEAT = createItem(new FabricItemSettings().group(ItemGroup.FOOD).food(new FoodComponent.Builder().meat().hunger(16)
+    public static final Item COOKED_IRON_GOLEM_MEAT = createItem(new FabricItemSettings().food(new FoodComponent.Builder().meat().hunger(16)
             .saturationModifier(12).statusEffect(new StatusEffectInstance(StatusEffects.HEALTH_BOOST, 4000, 4), 1).build()),
             "cooked_iron_golem_meat");
 
@@ -105,37 +101,40 @@ public class ModItems {
     }
 
     public static Item createFood(int hunger, int saturation, String name) {
-        return createItem(new FabricItemSettings().group(ItemGroup.FOOD).food(new FoodComponent.Builder().hunger(hunger).saturationModifier(saturation)
+        return createItem(new FabricItemSettings().food(new FoodComponent.Builder().hunger(hunger).saturationModifier(saturation)
                 .meat().build()), name);
     }
 
     public static Item createFood(int hunger, int saturation, StatusEffect effect, int duration, String name) {
-        return createItem(new FabricItemSettings().group(ItemGroup.FOOD).food(new FoodComponent.Builder().hunger(hunger).saturationModifier(saturation)
+        return createItem(new FabricItemSettings().food(new FoodComponent.Builder().hunger(hunger).saturationModifier(saturation)
                 .statusEffect(new StatusEffectInstance(effect, duration), 1).build()), name);
     }
 
     public static Item createFood(boolean meat, int hunger, int saturation, StatusEffect effect, int duration, String name) {
-        return createItem(new FabricItemSettings().group(ItemGroup.FOOD).food(new FoodComponent.Builder().hunger(hunger).saturationModifier(saturation)
+        return createItem(new FabricItemSettings().food(new FoodComponent.Builder().hunger(hunger).saturationModifier(saturation)
                 .statusEffect(new StatusEffectInstance(effect, duration), 1).build()), name);
     }
 
     public static Item createFood(int hunger, int saturation, StatusEffect effect, int duration, float chance, String name) {
-        return createItem(new FabricItemSettings().group(ItemGroup.FOOD).food(new FoodComponent.Builder().hunger(hunger).saturationModifier(saturation)
+        return createItem(new FabricItemSettings().food(new FoodComponent.Builder().hunger(hunger).saturationModifier(saturation)
                 .statusEffect(new StatusEffectInstance(effect, duration), chance).build()), name);
     }
 
     public static Item createFood(boolean meat, int hunger, int saturation, StatusEffect effect, int amplification, int duration, float chance, String name) {
-        return createItem(new FabricItemSettings().group(ItemGroup.FOOD).food(new FoodComponent.Builder().hunger(hunger).saturationModifier(saturation)
+        return createItem(new FabricItemSettings().food(new FoodComponent.Builder().hunger(hunger).saturationModifier(saturation)
                  .statusEffect(new StatusEffectInstance(effect, duration, amplification), chance).build()), name);
     }
 
     public static Item createFood(FoodComponent foodComponent, String name) {
-        return createItem(new FabricItemSettings().group(ItemGroup.FOOD).food(foodComponent), name);
+        return createItem(new FabricItemSettings().food(foodComponent), name);
     }
 
     public static void registerItems() {
         for(FullItem item : items) {
-            Registry.register(Registry.ITEM, new Identifier("verycoolmod", item.getName()), item.getItem());
+            Registry.register(Registries.ITEM, new Identifier("verycoolmod", item.getName()), item.getItem());
+            ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register(content -> {
+                content.add(item.getItem());
+            });
         }
     }
 }
