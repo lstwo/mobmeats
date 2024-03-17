@@ -62,5 +62,8 @@
   "item.verycoolmod.cooked_spider_meat": "Cooked Spider Meat",
 
   "item.verycoolmod.squid_meat": "Squid Meat",
-  "item.verycoolmod.cooked_squid_meat": "Cooked Squid Meat"
+  "item.verycoolmod.cooked_squid_meat": "Cooked Squid Meat",
+
+  "item.verycoolmod.small_endermeat": "Small Endermeat",
+  "item.verycoolmod.cooked_small_endermeat": "Cooked Small Endermeat"
 }
